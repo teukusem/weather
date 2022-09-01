@@ -41,7 +41,11 @@ function Home() {
 
   const fetchDataByCoordinate = async (long, lat) => {
     const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=8664937cae5cf21e68607b723864a4a0`;
-    const response = await axios.get(url);
+    const response = await axios.get(url, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     return response;
   };
 
